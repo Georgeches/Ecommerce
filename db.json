@@ -1,29 +1,29 @@
 {
-    "bestselling": [
+    "smartphones": [
         {
+            "id": "1",
             "name": "Samsung s23",
             "price": 160000,
             "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
         },
         {
+            "id": "2",
             "name": "Samsung s23",
             "price": 160000,
             "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
         },
         {
+            "id": "3",
             "name": "Samsung s23",
             "price": 160000,
             "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
         },
         {
+            "id": "4",
             "name": "Samsung s23",
             "price": 160000,
             "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
         }
-      
-    ],
-    "smartphones": [
-      
     ],
     "phone-accessories": [
       
