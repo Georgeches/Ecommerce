@@ -1,5 +1,25 @@
 {
     "bestselling": [
+        {
+            "name": "Samsung s23",
+            "price": 160000,
+            "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
+        },
+        {
+            "name": "Samsung s23",
+            "price": 160000,
+            "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
+        },
+        {
+            "name": "Samsung s23",
+            "price": 160000,
+            "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
+        },
+        {
+            "name": "Samsung s23",
+            "price": 160000,
+            "image":"file:///home/chesire/entertainment/Movies/samsung%20s23.webp"
+        }
       
     ],
     "smartphones": [
