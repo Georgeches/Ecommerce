@@ -13,8 +13,8 @@
     <div class="navbar">
         <h1>e.store</h1>
         <div class="nav-list">
-            <li><button class="login" data-toggle="modal" data-target="#login-modal">Log in</button><button class="signup" data-toggle="modal" data-target="#create-modal">Sign up</button></li>
-            <li data-toggle="modal" data-target="#exampleModalLong"><i class="las la-shopping-cart"></i><i class="las la-circle"><a style="color: white;" class="circle-cont"></a></i></li>
+            <li><button class="login" data-toggle="modal" data-target="#login-modal">Log in</button><button class="signup" data-toggle="modal" data-target="#create-modal">Sign up</button><button class="logout">Log out</button></li>
+            <li data-toggle="modal" data-target="#exampleModalLong"><i class="las la-shopping-cart"></i><i class="las la-circle"><a style="color: white;" class="circle-cont">0</a></i></li>
         </div>
     </div>
 
@@ -22,7 +22,6 @@
         <div class="categories">
             <a href="#products-section"><p>Smartphones</p></a>
             <a href="#products-section"><p>Computers</p></a>
-            <a href="#products-section"><p>Phone-accessories</p></a>
             <a href="#products-section"><p>Computer-accessories</p></a>
         </div>
         <div class="intro">
@@ -45,7 +44,6 @@
         <h1>Our products</h1>
         <div class="products-nav">
             <li class="category">Smartphones</li>
-            <li class="category">Phone-accessories</li>
             <li class="category">Computers</li>
             <li class="category">Computer-accessories</li>
         </div>
@@ -133,7 +131,7 @@
             <h5>Send us a message</h5>
             <form action="" id="mail-form">
                 <input type="text" name="name" id="name" placeholder="Enter your name" required>            
-                <input type="text" name="email" id="email" placeholder="Enter your email address" required>
+                <input type="text" name="email" id="sender-email" placeholder="Enter your email address" required>
                 <textarea id="message" placeholder="Enter your message here" required></textarea>
                 <button class="send-mail">Send</button>
             </form>
@@ -155,7 +153,7 @@
         <div class="modal-body">
             <ul class="cart-list"></ul>
             <hr>
-            <p style="margin-left: 50px;">Total : <span class="show-total">5000</span></p>
+            <p style="margin-left: 50px;"><span class="show-total"></span></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
