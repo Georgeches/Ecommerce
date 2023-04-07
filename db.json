@@ -25,38 +25,6 @@
       "image": "https://imgs.search.brave.com/RiF7YjY-XJvC2sg8w746EWZkomi5P6cMauFlPOjDuaw/rs:fit:474:355:1/g:ce/aHR0cHM6Ly9pbWFn/ZS11cy5zYW1zdW5n/LmNvbS91cy9zbWFy/dHBob25lcy9nYWxh/eHktczIyLXVsdHJh/L2ltYWdlcy9nYWxs/ZXJ5L0IwLVBoYW50/b21CbGFjay9GTFJD/LTIxNC1CMC1QaGFu/dG9tQmxhY2stMDEt/UERQLUdBTExFUlkt/MTYwMHgxMjAwLmpw/Zz8kcHJvZHVjdC1k/ZXRhaWxzLWpwZyQ"
     }
   ],
-  "Phone-accessories": [
-    {
-      "id": "1",
-      "name": "Phone cover",
-      "price": 500,
-      "image": "https://imgs.search.brave.com/9cLy-AQx2UtmNVp3_OUqvjeserN28v-dilyNJZ7qTc4/rs:fit:400:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4t/Q0pUdVRld3gxc0JG/Q3hieFdSZlRRQUFB/QSZwaWQ9QXBp"
-    },
-    {
-      "id": "2",
-      "name": "Phone cover",
-      "price": 500,
-      "image": "https://imgs.search.brave.com/9cLy-AQx2UtmNVp3_OUqvjeserN28v-dilyNJZ7qTc4/rs:fit:400:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4t/Q0pUdVRld3gxc0JG/Q3hieFdSZlRRQUFB/QSZwaWQ9QXBp"
-    },
-    {
-      "id": "3",
-      "name": "Phone cover",
-      "price": 500,
-      "image": "https://imgs.search.brave.com/9cLy-AQx2UtmNVp3_OUqvjeserN28v-dilyNJZ7qTc4/rs:fit:400:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4t/Q0pUdVRld3gxc0JG/Q3hieFdSZlRRQUFB/QSZwaWQ9QXBp"
-    },
-    {
-      "id": "4",
-      "name": "Phone cover",
-      "price": 500,
-      "image": "https://imgs.search.brave.com/9cLy-AQx2UtmNVp3_OUqvjeserN28v-dilyNJZ7qTc4/rs:fit:400:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4t/Q0pUdVRld3gxc0JG/Q3hieFdSZlRRQUFB/QSZwaWQ9QXBp"
-    },
-    {
-      "id": "5",
-      "name": "Phone cover",
-      "price": 500,
-      "image": "https://imgs.search.brave.com/9cLy-AQx2UtmNVp3_OUqvjeserN28v-dilyNJZ7qTc4/rs:fit:400:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC4t/Q0pUdVRld3gxc0JG/Q3hieFdSZlRRQUFB/QSZwaWQ9QXBp"
-    }
-  ],
   "Computers": [
     {
       "id": "1",

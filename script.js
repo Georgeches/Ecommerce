@@ -18,6 +18,10 @@ let jsonArrays = ['Smartphones', 'Phone-accessories', 'Computers', 'Computer-acc
 let createUserForm = document.querySelector('.create-user-form')
 let loginForm = document.querySelector('.login-form')
 
+let loggedInUser = {
+    username: ''
+}
+
 fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`)
 .then(res=>res.json())
 .then(data => displayProducts(data))
@@ -165,23 +169,30 @@ function displayProducts(arr){
         cartButton.innerHTML = 'Add to cart'
         cartButton.addEventListener('click', (event) => {
             event.preventDefault()
-            let newCart = {
-                name: obj.name,
-                price: obj.price,
-                number_ordered: 1,
-                image: obj.image
+            if(loggedInUser.name = ''){
+                alert('please log in first')
             }
-            fetch(`http://localhost:3000/cart`,{
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body:JSON.stringify(newCart)
-            })
-            .then(res=>res.json())
-            .then(update=>console.log(update))
-            alert('successfully added to cart')
-            location.reload()
+            else{
+                let newCart = {
+                    name: obj.name,
+                    price: obj.price,
+                    number_ordered: 1,
+                    image: obj.image,
+                    user: loggedInUser.name
+                }
+                fetch(`http://localhost:3000/cart`,{
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body:JSON.stringify(newCart)
+                })
+                .then(res=>res.json())
+                .then(update=>console.log(update))
+                alert('successfully added to cart')
+                location.reload()
+            }
+            
         })
         productDiv.appendChild(cartButton)
     }
@@ -208,27 +219,33 @@ function createUser(){
 }
 
 function login(){
-    let newUser = {
-        username: document.querySelector("#username").value,
-        password: document.querySelector("#password").value,
-        email: document.querySelector("#email").value
-    }
-
-    fetch(`http://localhost:3000/Users`,{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body:JSON.stringify(newUser)
-    })
+    let userName = document.querySelector('#login-username').value
+    let userPassword = document.querySelector('#login-password').value
+    fetch(`http://localhost:3000/Users`)
     .then(res=>res.json())
-    .then(update=>console.log(update))
-
-    alert('Account created. You can now log in')
+    .then(users => {
+        for(let user of users){
+            if(user.username == userName && user.password == userPassword){
+                loggedInUser.username = user.username
+            }
+        }
+        if(loggedInUser.name == ''){
+            alert('username or password is not correct')
+        }
+        else{
+            alert('You are now logged in')
+        }
+    })
 }
 
 createUserForm.addEventListener('submit', (event)=>{
     event.preventDefault()
     createUser()
     createUserForm.reset()
+})
+
+loginForm.addEventListener('submit', (event)=>{
+    event.preventDefault()
+    login()
+    loginForm.reset()
 })

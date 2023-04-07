@@ -130,7 +130,7 @@ i.la-circle{
     margin-bottom: 30px;
 }
 
-#search, #create-modal input{
+#search, #create-modal input, #login-modal input{
     width: 500px;
     height: 55px;
     border-radius: 10px;
@@ -141,13 +141,13 @@ i.la-circle{
     color: rgb(70, 70, 70);
 }
 
-#create-modal input{
+#create-modal input, #login-modal input{
     border: 1px solid rgba(215, 215, 215, 0.392);
     margin-bottom: 20px;
     width: 100%;
 }
 
-#create-modal .create-user{
+#create-modal .create-user, #login-modal .login-user{
     height: 55px;
     width: 100%;
     border-radius: 10px;
