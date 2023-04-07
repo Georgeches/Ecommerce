@@ -15,6 +15,8 @@ let productsCategories = document.querySelectorAll('.category')
 let categories = document.querySelector('.categories').querySelectorAll('p')
 let resultsDiv = document.querySelector('.results-list')
 let jsonArrays = ['Smartphones', 'Phone-accessories', 'Computers', 'Computer-accessories']
+let createUserForm = document.querySelector('.create-user-form')
+let loginForm = document.querySelector('.login-form')
 
 fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`)
 .then(res=>res.json())
@@ -184,3 +186,49 @@ function displayProducts(arr){
         productDiv.appendChild(cartButton)
     }
 }
+
+function createUser(){
+    let newUser = {
+        username: document.querySelector("#username").value,
+        password: document.querySelector("#password").value,
+        email: document.querySelector("#email").value
+    }
+
+    fetch(`http://localhost:3000/Users`,{
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify(newUser)
+    })
+    .then(res=>res.json())
+    .then(update=>console.log(update))
+
+    alert('Account created. You can now log in')
+}
+
+function login(){
+    let newUser = {
+        username: document.querySelector("#username").value,
+        password: document.querySelector("#password").value,
+        email: document.querySelector("#email").value
+    }
+
+    fetch(`http://localhost:3000/Users`,{
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify(newUser)
+    })
+    .then(res=>res.json())
+    .then(update=>console.log(update))
+
+    alert('Account created. You can now log in')
+}
+
+createUserForm.addEventListener('submit', (event)=>{
+    event.preventDefault()
+    createUser()
+    createUserForm.reset()
+})

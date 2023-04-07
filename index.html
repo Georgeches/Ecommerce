@@ -13,7 +13,7 @@
     <div class="navbar">
         <h1>e.store</h1>
         <div class="nav-list">
-            <li><button class="login">Log in</button><button class="signup">Sign up</button></li>
+            <li><button class="login">Log in</button><button class="signup" data-toggle="modal" data-target="#create-modal">Sign up</button></li>
             <li data-toggle="modal" data-target="#exampleModalLong"><i class="las la-shopping-cart"></i><i class="las la-circle"><a style="color: white;" class="circle-cont"></a></i></li>
         </div>
     </div>
@@ -156,6 +156,53 @@
             <ul class="cart-list"></ul>
             <hr>
             <p style="margin-left: 50px;">Total : <span class="show-total">5000</span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="create-user-form">
+            <input type="text" id="username" placeholder="Enter your username">
+            <input type="password" id="password" placeholder="Enter password">
+            <input type="email" id="email" placeholder="Enter email address">
+            <button class="create-user">Create account</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="login-form">
+            <input type="text" id="username" placeholder="Enter your username">
+            <input type="password" id="password" placeholder="Enter password">
+            <button class="create-user">Log in</button>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

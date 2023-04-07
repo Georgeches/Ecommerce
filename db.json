@@ -144,5 +144,25 @@
       "image": "https://imgs.search.brave.com/1VTWwqSea3ZRHY4glaC2wcjGRSbO89FkD7RbkiggQ7I/rs:fit:1000:848:1/g:ce/aHR0cHM6Ly8zLmJw/LmJsb2dzcG90LmNv/bS9fcDRnbHZIQmJ6/eUUvUzZ1d0tfWEdB/WEkvQUFBQUFBQUFB/Q0kvRnNZa2hiTmI3/Wk0vczE2MDAvY29t/LTc2YS5qcGc",
       "id": 5
     }
+  ],
+  "Users": [
+    {
+      "username": "George",
+      "password": "gkchez83",
+      "email": "chesire608@gmail.com",
+      "id": 1
+    },
+    {
+      "username": "chesire",
+      "password": "chesire123",
+      "email": "",
+      "id": 2
+    },
+    {
+      "username": "someone",
+      "password": "someone123",
+      "email": "",
+      "id": 3
+    }
   ]
 }
