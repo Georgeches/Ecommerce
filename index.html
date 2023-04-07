@@ -11,26 +11,26 @@
 </head>
 <body>
     <div class="navbar">
-        <h1>E.store</h1>
+        <h1>e.store</h1>
         <div class="nav-list">
             <li><button class="login">Log in</button><button class="signup">Sign up</button></li>
-            <li data-toggle="modal" data-target="#exampleModal"><i class="las la-shopping-cart"></i><i class="las la-circle"><a style="color: white;">5</a></i></li>
+            <li data-toggle="modal" data-target="#exampleModalLong"><i class="las la-shopping-cart"></i><i class="las la-circle"><a style="color: white;" class="circle-cont"></a></i></li>
         </div>
     </div>
 
     <div class="hero-section">
         <div class="categories">
-            <p>Smartphones</p>
-            <p>Computers</p>
-            <p>Phone-accessories</p>
-            <p>Computer-accessories</p>
+            <a href="#products-section"><p>Smartphones</p></a>
+            <a href="#products-section"><p>Computers</p></a>
+            <a href="#products-section"><p>Phone-accessories</p></a>
+            <a href="#products-section"><p>Computer-accessories</p></a>
         </div>
         <div class="intro">
             <h1>Shop in style</h1>
             <h2>Upto 25% off</h2>
             <form id="search-form">
                 <input type="text" name="search" id="search" placeholder="Type to search ...">
-                <button class="search">Search</button>
+                <button class="search" data-toggle="modal" data-target="#search-modal">Search</button>
             </form>
             
         </div>
@@ -41,7 +41,7 @@
         <div class="pros"><p>Quality Products</p></div>
         <div class="pros"><p>Affordable costs</p></div>
     </div>
-    <div class="all-products">
+    <div class="all-products" id="products-section">
         <h1>Our products</h1>
         <div class="products-nav">
             <li class="category">Smartphones</li>
@@ -142,22 +142,40 @@
     <footer>
         <p><i class="las la-copyright"></i>&nbspDesigned and Developed by George Chesire</p>
     </footer>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Cart</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <ul class="cart-list"></ul>
+            <ul class="cart-list"></ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Search results</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <ul class="results-list"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

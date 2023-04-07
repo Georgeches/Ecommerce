@@ -10,10 +10,14 @@ body{
     background: #E5E5E5;
 }
 
+li{
+    list-style-type: none;
+}
+
 .navbar{
     position: fixed;
     margin-top: -10px;
-    height: 70px;
+    height: 80px;
     background-color: rgb(255, 0, 0, 0.59);
     margin-left: -10px;
     display: flex;
@@ -62,8 +66,8 @@ i.la-circle{
     color: #FF7A00;
     position: relative;
     bottom: 10px;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
 }
 
 .la-circle a{
@@ -80,6 +84,7 @@ i.la-circle{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .categories{
@@ -104,6 +109,10 @@ i.la-circle{
 
 .categories p:hover{
     background-color: #E5E5E5;
+}
+
+.categories a{
+    color: rgb(24, 24, 24);
 }
 
 .intro h1{
@@ -450,6 +459,42 @@ textarea{
     background-color: #FF7A00;
     font-size: 16px;
     cursor: pointer;
+}
+
+.cart{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid rgb(218, 218, 218);
+}
+
+.remove-from-cart{
+    margin-top: 10px;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #FF7A00;
+    font-size: 16px;
+    cursor: pointer;  
+}
+
+#number_order button{
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #FF7A00;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#number_order p{
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 footer{
