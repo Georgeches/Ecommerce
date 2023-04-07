@@ -472,13 +472,23 @@ textarea{
 .remove-from-cart{
     margin-top: 10px;
     height: 40px;
-    width: 120px;
+    width: 80px;
     border-radius: 10px;
     border: none;
     outline: none;
     background-color: #FF7A00;
     font-size: 16px;
     cursor: pointer;  
+    margin-right: 10px;
+}
+
+.search-result{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid rgb(218, 218, 218);
+    align-items: center;
 }
 
 #number_order button{

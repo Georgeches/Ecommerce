@@ -14,10 +14,7 @@ let productsNav = document.querySelector('.products-nav')
 let productsCategories = document.querySelectorAll('.category')
 let categories = document.querySelector('.categories').querySelectorAll('p')
 let resultsDiv = document.querySelector('.results-list')
-
-function updateCart(obj){
-    
-}
+let jsonArrays = ['Smartphones', 'Phone-accessories', 'Computers', 'Computer-accessories']
 
 fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`)
 .then(res=>res.json())
@@ -33,43 +30,78 @@ fetch(`http://localhost:3000/cart`)
         while (cartDiv.firstChild) {
             cartDiv.removeChild(cartDiv.firstChild);
         }
-            for(let i of data){
-                let cart = document.createElement('li')
-                cart.classList.add('cart')
-                cart.innerHTML = `
-                    <img src="${i.image}" alt="${i.name}" height="150">
-                    <div class="cart-texts">
-                        <p>${i.name}</p>
-                        <p>Ksh. ${i.price}</p>
-                        <div id="number_order" style="display: flex; align-items: center;">
-                        </div>
-                    </div>
-                `
-                let removeButton = document.createElement('button')
-                removeButton.classList.add('remove-from-cart')
-                removeButton.innerHTML = 'remove'
-                cart.querySelector('div').appendChild(removeButton)
 
-                removeButton.addEventListener('click', ()=>{
+        let total_price = 0
+
+        for(let i of data){
+
+            total_price += i.price*i.number_ordered
+            document.querySelector('.show-total').innerHTML = total_price   
+
+            let cart = document.createElement('li')
+            cart.classList.add('cart')
+            cart.innerHTML = `
+                <img src="${i.image}" alt="${i.name}" height="150">
+                <div class="cart-texts">
+                    <p>${i.name}</p>
+                    <p>${i.number_ordered}</p>
+                    <p>Total: Ksh. ${i.price * i.number_ordered}</p>
+                    </div>
+                </div>
+            `
+
+            let updateButton = document.createElement('button')
+            updateButton.classList.add('remove-from-cart')
+            updateButton.innerHTML = 'update'
+            cart.querySelector('div').appendChild(updateButton)
+
+            let removeButton = document.createElement('button')
+            removeButton.classList.add('remove-from-cart')
+            removeButton.innerHTML = 'remove'
+            cart.querySelector('div').appendChild(removeButton)
+
+            removeButton.addEventListener('click', ()=>{
+                fetch(`http://localhost:3000/cart/${i.id}`,{
+                    method: 'DELETE',
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                cart.remove()
+            })
+            cartDiv.appendChild(cart)
+
+            updateButton.addEventListener('click', ()=>{
+                let numberOrdered = prompt(`Enter number of ${i.name} to order`)
+                if(numberOrdered == 0){
+                    alert('number cannot be 0')
+                }
+
+                else{
+                    i.number_ordered = numberOrdered
                     fetch(`http://localhost:3000/cart/${i.id}`,{
-                        method: 'DELETE',
+                        method: 'PATCH',
                         headers: {
                             "Content-Type": "application/json"
-                        }
+                        },
+                        body: JSON.stringify(i)
                     })
-                    cart.remove()
-                })
-                cartDiv.appendChild(cart)
-            }
+                    .then(res=>res.json())
+                    .then(update=>console.log(update))
+                    location.reload()
+                }
+
+                    
+            })
+        }
     }
 })
 
-document.querySelector('#search-form').addEventListener('submit', (e)=>{
-    e.preventDefault()
+document.querySelector('#search-form').addEventListener('submit', (event)=>{
+    event.preventDefault()
     while (resultsDiv.firstChild) {
         resultsDiv.removeChild(resultsDiv.firstChild);
     }
-    let jsonArrays = ['Smartphones', 'Phone-accessories', 'Computers', 'Computer-accessories']
     for(let arr of jsonArrays){
         fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/${arr}`)
         .then(res=>res.json())
