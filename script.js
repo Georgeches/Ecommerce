@@ -149,6 +149,30 @@ for(let i = 0; i<categories.length; i++){
     })
 }
 
+function addToCart(obj){
+    let newCart = {
+        name: obj.name,
+        price: obj.price,
+        number_ordered: 1,
+        image: obj.image
+    }
+    fetch(`http://localhost:3000/cart`,{
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify(newCart)
+    })
+    .then(res=>res.json())
+    .then(update=>console.log(update))
+    alert('successfully added to cart')
+    fetch(`http://localhost:3000/cart`)
+    .then(res=>res.json())
+    .then(data => {  
+        document.querySelector('.circle-cont').innerHTML = data.length
+    })
+}
+
 function displayProducts(arr){
     while (productsDiv.firstChild) {
         productsDiv.removeChild(productsDiv.firstChild);
@@ -166,29 +190,18 @@ function displayProducts(arr){
         cartButton.innerHTML = 'Add to cart'
         cartButton.addEventListener('click', (event) => {
             event.preventDefault()
-                let newCart = {
-                    name: obj.name,
-                    price: obj.price,
-                    number_ordered: 1,
-                    image: obj.image
-                }
-                fetch(`http://localhost:3000/cart`,{
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body:JSON.stringify(newCart)
-                })
-                .then(res=>res.json())
-                .then(update=>console.log(update))
-                alert('successfully added to cart')
-                fetch(`http://localhost:3000/cart`)
-                .then(res=>res.json())
-                .then(data => {  
-                    document.querySelector('.circle-cont').innerHTML = data.length
-                })
-            
+            addToCart(obj)
         })
         productDiv.appendChild(cartButton)
     }
 }
+
+document.querySelector('.discount-btn').addEventListener('click', ()=>{
+    let obj = {
+        name: 'Fridge',
+        price: 99999,
+        number_ordered: 1,
+        image: 'https://image-us.samsung.com/SamsungUS/home/home-appliances/refrigerators/06292022/rf28r7551sr/RF28R7551SR_04_Silver_SCOM.jpg?$product-details-jpg$'
+    }
+    addToCart(obj)
+})
