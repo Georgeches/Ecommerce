@@ -124,25 +124,5 @@
       "user": "George",
       "id": 5
     }
-  ],
-  "Users": [
-    {
-      "username": "George",
-      "password": "gkchez83",
-      "email": "chesire608@gmail.com",
-      "id": 1
-    },
-    {
-      "username": "chesire",
-      "password": "chesire123",
-      "email": "",
-      "id": 2
-    },
-    {
-      "username": "someone",
-      "password": "someone123",
-      "email": "",
-      "id": 3
-    }
   ]
 }
