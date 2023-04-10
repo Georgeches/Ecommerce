@@ -95,7 +95,6 @@ fetch(`http://localhost:3000/cart`)
                 
             }
         }
-    }
 })
 
 document.querySelector('#search-form').addEventListener('submit', (event)=>{
