@@ -15,15 +15,6 @@ let productsCategories = document.querySelectorAll('.category')
 let categories = document.querySelector('.categories').querySelectorAll('p')
 let resultsDiv = document.querySelector('.results-list')
 let jsonArrays = ['Smartphones', 'Phone-accessories', 'Computers', 'Computer-accessories']
-let createUserForm = document.querySelector('.create-user-form')
-let loginForm = document.querySelector('.login-form')
-
-let logOut = document.querySelector('.logout')
-logOut.style.display = 'none'
-
-let loggedInUser = {
-    username: ''
-}
 
 fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`)
 .then(res=>res.json())
@@ -34,10 +25,6 @@ fetch(`http://localhost:3000/cart`)
 .then(data => {    
     document.querySelector('.la-shopping-cart').onclick = ()=>{
         let cartDiv = document.querySelector('.cart-list')
-        if(loggedInUser.username == ''){
-            cartDiv.innerHTML = 'Please log in to see your cart'
-        }
-        else{
             while (cartDiv.firstChild) {
                 cartDiv.removeChild(cartDiv.firstChild);
             }
@@ -45,7 +32,6 @@ fetch(`http://localhost:3000/cart`)
             let total_price = 0
             let dataLength = 0
             for(let i of data){
-                if(i.user == loggedInUser.username){
                     dataLength+=1
                     document.querySelector('.circle-cont').innerHTML = dataLength
                     total_price += i.price*i.number_ordered
@@ -106,7 +92,6 @@ fetch(`http://localhost:3000/cart`)
         
                             
                     })
-                }
                 
             }
         }
@@ -179,10 +164,6 @@ function displayProducts(arr){
         cartButton.innerHTML = 'Add to cart'
         cartButton.addEventListener('click', (event) => {
             event.preventDefault()
-            if(loggedInUser.username == ''){
-                alert('please log in first')
-            }
-            else{
                 let newCart = {
                     name: obj.name,
                     price: obj.price,
@@ -205,82 +186,8 @@ function displayProducts(arr){
                 .then(data => {  
                     document.querySelector('.circle-cont').innerHTML = data.length
                 })
-            }
             
         })
         productDiv.appendChild(cartButton)
     }
 }
-
-function createUser(){
-    let newUser = {
-        username: document.querySelector("#username").value,
-        password: document.querySelector("#password").value,
-        email: document.querySelector("#email").value
-    }
-
-    fetch(`http://localhost:3000/Users`,{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body:JSON.stringify(newUser)
-    })
-    .then(res=>res.json())
-    .then(update=>console.log(update))
-
-    alert('Account created. You can now log in')
-}
-
-function login(){
-    let userName = document.querySelector('#login-username').value
-    let userPassword = document.querySelector('#login-password').value
-    fetch(`http://localhost:3000/Users`)
-    .then(res=>res.json())
-    .then(users => {
-        for(let user of users){
-            if(user.username == userName && user.password == userPassword){
-                loggedInUser.username = user.username
-                alert('You are now logged in')
-                document.querySelector('.login').style.display = 'none'
-                document.querySelector('.signup').style.display = 'none'
-                document.querySelector('.logout').style.display = 'block'
-            }
-        }
-        if(loggedInUser.username == ''){
-            alert('username or password is not correct')
-        }
-    })
-}
-
-createUserForm.addEventListener('submit', (event)=>{
-    event.preventDefault()
-    createUser()
-    createUserForm.reset()
-})
-
-loginForm.addEventListener('submit', (event)=>{
-    event.preventDefault()
-    login()
-    loginForm.reset()
-    fetch(`http://localhost:3000/cart`)
-    .then(res=>res.json())
-    .then(data => {  
-        let dataLength = 0
-        for(let i of data){
-            if(i.user == loggedInUser.username){
-                dataLength+=1
-                document.querySelector('.circle-cont').innerHTML = dataLength
-            }
-        }    
-    })
-})
-
-logOut.addEventListener('click', (event)=>{
-    event.preventDefault()
-    loggedInUser.username = ''
-    document.querySelector('.login').style.display = 'inline'
-    document.querySelector('.signup').style.display = 'inline'
-    document.querySelector('.logout').style.display = 'none'
-    document.querySelector('.circle-cont').innerHTML = 0
-})
