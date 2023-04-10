@@ -14,7 +14,7 @@ let productsNav = document.querySelector('.products-nav')
 let productsCategories = document.querySelectorAll('.category')
 let categories = document.querySelector('.categories').querySelectorAll('p')
 let resultsDiv = document.querySelector('.results-list')
-let jsonArrays = ['Smartphones', 'Phone-accessories', 'Computers', 'Computer-accessories']
+let jsonArrays = ['Smartphones', 'Computers', 'Computer-accessories']
 
 fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`)
 .then(res=>res.json())
@@ -23,6 +23,11 @@ fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`
 fetch(`http://localhost:3000/cart`)
 .then(res=>res.json())
 .then(data => {    
+    let dataLength = 0
+    for(let i of data){
+        dataLength+=1
+        document.querySelector('.circle-cont').innerHTML = dataLength
+    }   
     document.querySelector('.la-shopping-cart').onclick = ()=>{
         let cartDiv = document.querySelector('.cart-list')
             while (cartDiv.firstChild) {
@@ -30,9 +35,7 @@ fetch(`http://localhost:3000/cart`)
             }
     
             let total_price = 0
-            let dataLength = 0
             for(let i of data){
-                    dataLength+=1
                     document.querySelector('.circle-cont').innerHTML = dataLength
                     total_price += i.price*i.number_ordered
                     document.querySelector('.show-total').innerHTML = 'Total :' + total_price   
@@ -167,8 +170,7 @@ function displayProducts(arr){
                     name: obj.name,
                     price: obj.price,
                     number_ordered: 1,
-                    image: obj.image,
-                    user: loggedInUser.username
+                    image: obj.image
                 }
                 fetch(`http://localhost:3000/cart`,{
                     method: 'POST',
