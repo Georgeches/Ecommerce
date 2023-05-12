@@ -25,7 +25,7 @@ axios.get('https://my-json-server.typicode.com/Georgeches/electrommerce/smartpho
     console.error(error);
 });
 
-axios.get(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart`)
+fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart`)
 .then(res=>res.json())
 .then(data => {    
     let dataLength = 0
@@ -41,7 +41,6 @@ axios.get(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart`)
     
             let total_price = 0
             for(let i of data){
-                    document.querySelector('.circle-cont').innerHTML = dataLength
                     total_price += i.price*i.number_ordered
                     document.querySelector('.show-total').innerHTML = 'Total :' + total_price   
                     

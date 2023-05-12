@@ -84,33 +84,6 @@
     }
   ],
   "cart": [
-    {
-      "name": "Samsung s23",
-      "price": 160000,
-      "number_ordered": 1,
-      "image": "https://imgs.search.brave.com/RiF7YjY-XJvC2sg8w746EWZkomi5P6cMauFlPOjDuaw/rs:fit:474:355:1/g:ce/aHR0cHM6Ly9pbWFn/ZS11cy5zYW1zdW5n/LmNvbS91cy9zbWFy/dHBob25lcy9nYWxh/eHktczIyLXVsdHJh/L2ltYWdlcy9nYWxs/ZXJ5L0IwLVBoYW50/b21CbGFjay9GTFJD/LTIxNC1CMC1QaGFu/dG9tQmxhY2stMDEt/UERQLUdBTExFUlkt/MTYwMHgxMjAwLmpw/Zz8kcHJvZHVjdC1k/ZXRhaWxzLWpwZyQ",
-      "id": 7
-    },
-    {
-      "name": "Acer Middle East",
-      "price": 160000,
-      "number_ordered": 1,
-      "image": "https://imgs.search.brave.com/LwsiQ_zCxxkY2yrmnGDyCv4m0NePsA0QZ4d5o5ei510/rs:fit:480:480:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuYWNlci5jb20v/dXAvUmVzb3VyY2Uv/QWNlci9MYXB0b3Bz/L05pdHJvXzUvSW1h/Z2UvMjAyMTA0MTUv/Tml0cm81X0FONTE1/LTU3X0JsX0JrX21v/ZGVsbWFpbi5wbmc",
-      "id": 8
-    },
-    {
-      "name": "accessory",
-      "price": 160000,
-      "number_ordered": 1,
-      "image": "https://imgs.search.brave.com/1VTWwqSea3ZRHY4glaC2wcjGRSbO89FkD7RbkiggQ7I/rs:fit:1000:848:1/g:ce/aHR0cHM6Ly8zLmJw/LmJsb2dzcG90LmNv/bS9fcDRnbHZIQmJ6/eUUvUzZ1d0tfWEdB/WEkvQUFBQUFBQUFB/Q0kvRnNZa2hiTmI3/Wk0vczE2MDAvY29t/LTc2YS5qcGc",
-      "id": 10
-    },
-    {
-      "name": "Fridge",
-      "price": 99999,
-      "number_ordered": 1,
-      "image": "https://image-us.samsung.com/SamsungUS/home/home-appliances/refrigerators/06292022/rf28r7551sr/RF28R7551SR_04_Silver_SCOM.jpg?$product-details-jpg$",
-      "id": 11
-    }
+    
   ]
 }
