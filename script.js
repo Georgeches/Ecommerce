@@ -16,11 +16,16 @@ let categories = document.querySelector('.categories').querySelectorAll('p')
 let resultsDiv = document.querySelector('.results-list')
 let jsonArrays = ['Smartphones', 'Computers', 'Computer-accessories']
 
-fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones`)
-.then(res=>res.json())
-.then(data => displayProducts(data))
+axios.get('https://my-json-server.typicode.com/Georgeches/electrommerce/smartphones')
+  .then(response => {
+    const data = response.data;
+    displayProducts(data);
+  })
+  .catch(error => {
+    console.error(error);
+});
 
-fetch(`http://localhost:3000/cart`)
+axios.get(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart`)
 .then(res=>res.json())
 .then(data => {    
     let dataLength = 0
@@ -63,12 +68,19 @@ fetch(`http://localhost:3000/cart`)
                     cart.querySelector('div').appendChild(removeButton)
         
                     removeButton.addEventListener('click', ()=>{
-                        fetch(`http://localhost:3000/cart/${i.id}`,{
-                            method: 'DELETE',
-                            headers: {
-                                "Content-Type": "application/json"
-                            }
+                        axios.delete(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart/${i.id}`, {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
                         })
+                        .then(response => {
+                            console.log(response);
+                            // Handle successful response
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            // Handle error
+                        });
                         cart.remove()
                     })
                     cartDiv.appendChild(cart)
@@ -81,15 +93,19 @@ fetch(`http://localhost:3000/cart`)
         
                         else{
                             i.number_ordered = numberOrdered
-                            fetch(`http://localhost:3000/cart/${i.id}`,{
-                                method: 'PATCH',
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify(i)
+                            axios.patch(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart/${i.id}`, i, {
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
                             })
-                            .then(res=>res.json())
-                            .then(update=>console.log(update))
+                            .then(response => {
+                                console.log(response);
+                                // Handle successful response
+                            })
+                            .catch(error => {
+                                console.error(error);
+                                // Handle error
+                            });
                             location.reload()
                         }
         
@@ -156,17 +172,21 @@ function addToCart(obj){
         number_ordered: 1,
         image: obj.image
     }
-    fetch(`http://localhost:3000/cart`,{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body:JSON.stringify(newCart)
+    axios.post('https://my-json-server.typicode.com/Georgeches/electrommerce/cart', newCart, {
+    headers: {
+        "Content-Type": "application/json"
+    }
     })
-    .then(res=>res.json())
-    .then(update=>console.log(update))
+    .then(response => {
+        console.log(response);
+        // Handle successful response
+    })
+    .catch(error => {
+        console.error(error);
+        // Handle error
+    });
     alert('successfully added to cart')
-    fetch(`http://localhost:3000/cart`)
+    fetch(`https://my-json-server.typicode.com/Georgeches/electrommerce/cart`)
     .then(res=>res.json())
     .then(data => {  
         document.querySelector('.circle-cont').innerHTML = data.length
